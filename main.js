@@ -2,14 +2,14 @@ function CountDown(container, time) {
   this.container = container;
   this.button = container.querySelector('.button');
   this.display = container.querySelector('.timer-display');
-  this.bar = container.querySelector('.timer-bar');
   this.time = time;
   this.remainingTime = this.time;
   this.elapsedTime = 0;
-
   this.onButtonClick = this.onButtonClick.bind(this);
   this.addEventListeners();
   this.updateDisplay();
+
+
 }
 
 CountDown.fn = CountDown.prototype;
@@ -42,10 +42,13 @@ CountDown.fn.init = function() {
 
     this.updateCounters();
     this.updateDisplay();
-    this.checkFinalTime();
+    var data = document.getElementById('#input').value;
+
+    console.log(data);
   }.bind(this), 1000);
 
   // this.button.innerText = 'Done!';
 };
 
-new CountDown(document.querySelector('.canvas'), 7200);
+
+new CountDown(document.querySelector('.canvas'), 600);
